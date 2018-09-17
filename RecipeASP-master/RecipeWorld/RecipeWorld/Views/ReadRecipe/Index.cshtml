@@ -1,0 +1,80 @@
+﻿@{@model RecipeWorld.ViewModels.RecipeViewModel
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Recipe.Title)</th>
+            <th>@Html.DisplayFor(m => m.Recipe.Title)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- I am working i need. I recive error so i can't test 
+        @foreach (var item in Model.RecipeFiles)
+        {
+            @Html.DisplayFor(m => item.ImgFile)
+        }-->
+    </tbody>
+</table>
+
+
+
+
+<div>
+    <div>
+        <img src="~/RecipeImageFiles/@Model.RecipeFiles.First().ImgFile"/>
+    </div>
+    <div>
+        <h3>Ingredients</h3>
+        @Html.DisplayFor(m => m.Recipe.Ingredients)
+        
+    </div>
+    <div>
+        <h3>Recipe</h3>
+        @Html.DisplayFor(m => m.Recipe.Contents)
+       
+    </div>
+
+    <div id="comment_div">
+        <div class="row">
+            <!--<div class="col col-sm-6 d-flex justify-content-start">-->
+            <div>
+                <img src="~/Images/pencil2.gif" style="padding-left:30px;" />
+            </div>
+        </div>
+
+        <hr>
+        <br />
+        <div>
+            <textarea class="form-control" id="contents" name="contents" rows="3"></textarea>
+            <br />
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-success btn-lg btn-sm" name="save_comment" id="save_comment" onclick="save_comment(38, 0, 'contents');">Save</button>
+            </div>
+        </div>
+        <hr>
+        <div style="text-align: left;padding:10px;">
+            <div style="text-align: left;padding-left:30px;">
+                <p style="font-weight:bold;">abc@abc.com</p>
+                <p>Love a savory baked breakfast option! What is up with biscuit vs. scone — I will second you on that one! These look amazing though, thanks for sharing!</p>
+                <p style="font-size:10px;">2018-06-19 21:13:54</p>
+                <div class="row">
+                    <div class="col col-sm-6">
+                        <a class="btn btn-success btn-lg btn-sm" data-toggle="collapse" href="#reply1" role="button" aria-expanded="false" aria-controls="reply1">
+                            Comments 0
+                        </a>
+                    </div>
+                    <div class="col col-sm-6 d-flex justify-content-end">
+                        <button type="button" class="btn btn-success btn-sm" name="delete_comment" id="delete_comment" onclick="delete_comment(38, 23, 0);">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
